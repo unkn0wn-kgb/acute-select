@@ -11,7 +11,7 @@
   "main": [
     "./acute.select/acute.select.js",
     "./acute.select/acute.select.div.css",
-    "./acute.select/div-template/acute.select.htm",
+    "./acute.select/div-template/acute.select.htm"
   ],
   "dependencies": {
     "angular": "1.2.7",
