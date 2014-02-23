@@ -116,7 +116,7 @@ angular.module("acute.select", [])
                         itemIndex = itemCount + index;
                         item = $scope.getItemFromDataItem(dataItem, itemIndex);
                         $scope.items.push(item);
-                        if (dataItem === selectedDataItem || (key && key != "" && dataItem[key] == selectedDataItem[key])) {
+                        if (dataItem.value === selectedDataItem || (key && key != "" && dataItem[key] == selectedDataItem[key])) {
                             $scope.selectedItem = item;
                             $scope.confirmedItem = angular.copy($scope.selectedItem);
                             $scope.model = $scope.selectedItem.value;
@@ -138,7 +138,7 @@ angular.module("acute.select", [])
                         item = { "text": dataItem, "value": dataItem, "index": itemIndex };
                     }
                     else if (dataItem[$scope.textField]) {
-                        item = { "text": dataItem[$scope.textField], "value": dataItem, "index": itemIndex };
+                        item = { "text": dataItem[$scope.textField], "value": dataItem.value, "index": itemIndex };
                     }
                 }
                 return item;
