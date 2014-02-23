@@ -1,8 +1,6 @@
 # acute-select #
 
-**acute-select** is a dropdown select component for [AngularJS](http://angularjs.org/), with no external dependencies other than Angular itself.
-
-**[Live Demo](http://john-oc.github.io/)** 
+**acute-select** is a dropdown select component for [AngularJS](http://angularjs.org/), with no external dependencies other than Angular itself. (Forked from John O'Connor but will be heavily modified)
 
 ## Features:- ##
 
@@ -74,8 +72,6 @@ JS:-
 
 As an alternative to the separate search box, acute-select can also act as a combined textbox and dropdown list. If the allowCustomText option is set, this will allow a user to enter text that is not in the list.
 
-See the **[demo page](http://john-oc.github.io/)** for an example.
-
 ### ac-key attribute ###
 
 The ac-key attribute allows you to specify a property name which will be used to match the ac-model object against the data array.
@@ -84,7 +80,7 @@ One shortcoming of the standard angular select directive is that when bound to a
 
 E.g. consider the following example, using the same list of US states shown above:-
 
-	$scope.currentState = { "name": "Alaska", "id": "AL" };
+	$scope.currentState = "AL";
 
 Then suppose we define a standard select as follows:-
 
@@ -107,4 +103,4 @@ If required, settings can be updated for all instances on a page, by using the a
 	    acuteSelectService.updateSetting("templatePath", "/js/templates");
 	})
 
-**John O'Connor**
+**Alex L*
