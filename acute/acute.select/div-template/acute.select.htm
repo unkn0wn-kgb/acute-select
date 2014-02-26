@@ -11,7 +11,8 @@
 	</div>
 	<div class="select-popup" ng-show="popupVisible">
 		<div class="select-filter" ng-hide="settings.comboMode || !settings.showSearchBox">
-			<input class="select-filter-input">
+			<input class="select-filter-input" ng-model="searchText"placeholder="search" ac-focus="searchBoxFocus" 
+				ng-change="findData()" ng-keydown="keyHandler($event)">
 			<span class="select-filter-add">+</span>
 		</div>
 		<div class="select-options" ng-style='{ "height": (listHeight + 6) + "px" }' ac-scroll-to="scrollTo" ac-on-scroll="listScrolled()">

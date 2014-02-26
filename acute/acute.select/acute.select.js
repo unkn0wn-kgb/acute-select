@@ -79,8 +79,8 @@ angular.module("acute.select", [])
                             // Load initial data (args are callback function, search text and item offset)
                             scope.dataFunction(scope.dataCallback, "", 0);
                         }
-                        else if (scope.model && scope.model[scope.textField]) {
-                            scope.confirmedItem = scope.selectedItem = scope.getItemFromDataItem(scope.model, 0);
+                        else if (scope.model) {
+                            scope.confirmedItem = scope.selectedItem = scope.getItemFromItems(scope.model, 0);
                             if (scope.confirmedItem) {
                                 scope.comboText = scope.confirmedItem.text;
                             }
@@ -96,7 +96,10 @@ angular.module("acute.select", [])
                     // Create dropdown items
                     scope.loadItems(dataItems, scope.model);
                     // Save selected item
-                    scope.confirmedItem = angular.copy(scope.selectedItem);
+                    scope.$watch('model', function() {
+                        scope.selectedItem = scope.getItemFromItems(scope.model);
+                        scope.confirmedItem = angular.copy(scope.selectedItem);
+                    });
                     scope.allDataLoaded = true;
                 }
             }
@@ -142,6 +145,19 @@ angular.module("acute.select", [])
                     }
                 }
                 return item;
+            };
+
+            $scope.getItemFromItems = function(dataItem) {
+                var item = null;
+                if (dataItem !== null && dataItem.length > 0){
+                    for (var i = 0, l = $scope.items.length; i < l; i++) {
+                        item = $scope.items[i];
+                        if (item.value === dataItem) {
+                            return item;
+                        }
+                    }
+                }
+                return null;
             };
 
             // Set height of list according to number of visible items
