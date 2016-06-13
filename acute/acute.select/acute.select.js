@@ -149,7 +149,7 @@ angular.module("acute.select", [])
 
             $scope.getItemFromItems = function(dataItem) {
                 var item = null;
-                if (dataItem !== null && dataItem.length > 0){
+                if (dataItem && dataItem.length && dataItem.length > 0){
                     for (var i = 0, l = $scope.items.length; i < l; i++) {
                         item = $scope.items[i];
                         if (item.value === dataItem) {
